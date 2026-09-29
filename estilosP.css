@@ -463,3 +463,233 @@ body {
   font-size: 15px;
 }
 
+/* ============================================= */
+/* RESPONSIVE — dispositivos pequeños y móviles */
+/* ============================================= */
+
+
+/* LAPTOPS PEQUEÑOS / TABLETS GRANDES */
+@media (max-width: 1100px) {
+
+  .contenedor {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 20px;
+    gap: 20px;
+  }
+
+}
+
+
+/* TABLETS */
+@media (max-width: 900px) {
+
+  .navbar {
+    padding: 0 30px;
+  }
+
+  .navbar nav {
+    gap: 20px;
+  }
+
+  .navbar nav a {
+    font-size: 12px;
+  }
+
+  .descripcionEmpresa {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+  }
+
+  .contenedor {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 20px;
+    gap: 20px;
+  }
+
+  .perfume {
+    height: 470px;
+  }
+
+  .perfume img {
+    height: 68%;
+    padding: 10px;
+  }
+
+  .fila-contacto {
+    gap: 30px;
+  }
+
+}
+
+
+/* CELULARES */
+@media (max-width: 700px) {
+
+  /* BARRA DE NAVEGACIÓN */
+
+  .navbar {
+    height: 60px;
+    padding: 0 15px;
+    border-radius: 18px;
+  }
+
+  .logo {
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+
+  .navbar nav {
+    gap: 12px;
+  }
+
+  .navbar nav a {
+    font-size: 10px;
+    letter-spacing: 0.5px;
+  }
+
+
+  /* HERO */
+
+  .descripcionEmpresa {
+    top: auto;
+    bottom: 48px;
+    left: 24px;
+    transform: none;
+    max-width: 12ch;
+    font-size: 3rem;
+  }
+
+
+  /* CATÁLOGO */
+
+  .contenedor {
+    grid-template-columns: 1fr;
+    padding: 0 15px;
+    gap: 20px;
+  }
+
+  .perfume {
+    height: 500px;
+  }
+
+  .perfume img {
+    height: 65%;
+    padding: 15px;
+    object-fit: contain;
+  }
+
+  .perfume-info {
+    padding: 12px 18px;
+  }
+
+  .perfume-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .perfume-info p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+
+  /* FILTRO HOMBRE / MUJER */
+
+  .filtroGenero {
+    gap: 25px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  .filtro-btn {
+    font-size: 1.2rem;
+  }
+
+
+  /* CONTACTO */
+
+  .tarjeta-contacto {
+    width: 100%;
+    padding: 35px 25px;
+  }
+
+  .loader {
+    display: none;
+  }
+
+}
+
+
+/* CELULARES PEQUEÑOS */
+@media (max-width: 400px) {
+
+  /* BARRA DE NAVEGACIÓN */
+
+  .navbar {
+    padding: 0 12px;
+  }
+
+  .logo {
+    font-size: 14px;
+    letter-spacing: 1.5px;
+  }
+
+  .navbar nav {
+    gap: 8px;
+  }
+
+  .navbar nav a {
+    font-size: 9px;
+    letter-spacing: 0.3px;
+  }
+
+
+  /* CATÁLOGO */
+
+  .catalogoPerfumes {
+    font-size: 1.8rem;
+  }
+
+  .perfume {
+    height: 480px;
+  }
+
+  .perfume img {
+    height: 63%;
+    padding: 12px;
+    object-fit: contain;
+  }
+
+  .perfume-info {
+    padding: 10px 15px;
+  }
+
+  .perfume-info h3 {
+    font-size: 1.1rem;
+  }
+
+  .perfume-info p {
+    font-size: 0.85rem;
+    line-height: 1.35;
+  }
+
+
+  /* FILTRO */
+
+  .filtroGenero {
+    gap: 20px;
+  }
+
+  .filtro-btn {
+    font-size: 1.1rem;
+  }
+
+
+  /* BOTÓN WHATSAPP */
+
+  .Btn {
+    width: 40px;
+    height: 40px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+}
