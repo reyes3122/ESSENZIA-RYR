@@ -49,6 +49,19 @@ if (!sinMovimientoTarjetas) {
 
 // FIN EFECTO PERFUMES //
 
+
+// INICIO VOLTEAR TARJETAS AL HACER CLIC //
+// (va FUERA del if de arriba para que funcione siempre)
+
+tarjetas.forEach((tarjeta) => {
+  tarjeta.addEventListener("click", () => {
+    tarjeta.classList.toggle("volteada");
+  });
+});
+
+// FIN VOLTEAR TARJETAS //
+
+
 // INICIO CATALOGO HOMBRE - MUJER //
 
 const botonesFiltro = document.querySelectorAll(".filtro-btn");

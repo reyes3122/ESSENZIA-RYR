@@ -1,4 +1,3 @@
-
 /* BARRA DE NAVEGACION */
 .navbar {
     position: fixed;
@@ -174,29 +173,69 @@ body {
     gap: 15px;
 }
 
-.perfume {
-    height: 500px;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.08);
-    overflow: hidden;           /* recorta la imagen a las esquinas redondeadas */
+/* ============================================= */
+/* TARJETAS GIRATORIAS (FLIP CARD) — MODIFICADO  */
+/* ============================================= */
 
-    display: flex;
-    flex-direction: column;
+.perfume {
+    height: 650px;
+    border-radius: 20px;
+    perspective: 1000px;        /* da profundidad al giro */
+    cursor: pointer;
 
     transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
     will-change: transform;
-    transform-style: preserve-3d;
 }
 
 .perfume:hover {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
-.perfume img {
+/* Contenedor interno que es el que gira */
+.perfume-inner {
+    position: relative;
     width: 100%;
-    height: 70%;                /* la foto ocupa el 70% de la tarjeta */
+    height: 100%;
+    transition: transform 0.7s;
+    transform-style: preserve-3d;
+}
+
+/* Cuando tiene la clase "volteada" (la pone el JS al hacer clic), gira */
+.perfume.volteada .perfume-inner {
+    transform: rotateY(180deg);
+}
+
+/* Estilo común de las dos caras */
+.cara {
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    overflow: hidden;           /* recorta la imagen a las esquinas redondeadas */
+    background: rgba(255, 255, 255, 0.08);
+    backface-visibility: hidden;            /* oculta la cara cuando está de espaldas */
+    -webkit-backface-visibility: hidden;
+}
+
+/* FRENTE */
+.frente {
+    display: flex;
+    flex-direction: column;
+}
+
+.frente img {
+    width: 100%;
+    height: 55%;                /* la foto ocupa el 55% de la tarjeta */
     object-fit: cover;          /* llena el espacio sin deformarse */
     object-position: center;
+}
+
+/* "Toca para dar la vuelta" en el frente */
+.frente .pista {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: auto;        /* lo empuja al fondo de la tarjeta */
+    padding-bottom: 60px;
 }
 
 .perfume-info {
@@ -215,6 +254,59 @@ body {
     font-size: 0.9rem;
     color: #a59d92;
 }
+
+.perfume-info h4 {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #e0c88f;
+}
+
+.estrellas {
+    margin-top: 4px;
+    font-size: 0.85rem;
+    color: #e0c88f;
+}
+
+/* REVERSO */
+.reverso {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    background: rgba(58, 31, 79, 0.85);
+    border: 1px solid rgba(224, 200, 143, 0.4);
+}
+
+.reverso h3 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #e0c88f;
+    margin-bottom: 20px;
+}
+
+.reverso p {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #f3eee6;
+}
+
+.pista {
+    margin-top: 25px;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 0.8rem;
+    color: #a59d92;
+    letter-spacing: 0.1em;
+}
+
+/* FIN TARJETAS GIRATORIAS */
 
 /* Botones Hombre / Mujer */
 .filtroGenero {
@@ -505,12 +597,13 @@ body {
     gap: 20px;
   }
 
+  /* MODIFICADO: más alto porque ahora el frente lleva precio y presentaciones */
   .perfume {
-    height: 470px;
+    height: 580px;
   }
 
-  .perfume img {
-    height: 68%;
+  .frente img {
+    height: 50%;
     padding: 10px;
   }
 
@@ -567,12 +660,13 @@ body {
     gap: 20px;
   }
 
+  /* MODIFICADO */
   .perfume {
-    height: 500px;
+    height: 560px;
   }
 
-  .perfume img {
-    height: 65%;
+  .frente img {
+    height: 50%;
     padding: 15px;
     object-fit: contain;
   }
@@ -648,12 +742,13 @@ body {
     font-size: 1.8rem;
   }
 
+  /* MODIFICADO */
   .perfume {
-    height: 480px;
+    height: 540px;
   }
 
-  .perfume img {
-    height: 63%;
+  .frente img {
+    height: 48%;
     padding: 12px;
     object-fit: contain;
   }
